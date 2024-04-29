@@ -104,4 +104,4 @@ Raúl López (ralodev) -
 
 
 ## Acknowledgements
-Vuejs
+- Inspired in Dopefolio by [@Rammcodes](https://github.com/rammcodes)
