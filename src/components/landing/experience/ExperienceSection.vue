@@ -1,6 +1,6 @@
 <template>
-  <section id="experience" name="experience">
-    <div>
+  <section id="experience" name="experience" class="section-background-color">
+    <div class="text-black">
       <h1 class="section__title">
         {{ $t('experience.title') }}
       </h1>
@@ -51,9 +51,6 @@ const experience = en_experience.list
 
 <style scoped>
 #experience {
-  background-color: rgb(236 236 236);
-  padding-top: 2.5rem /* 40px */;
-  padding-bottom: 2.5rem /* 40px */;
   display: flex;
   justify-content: center;
   width: 100%;

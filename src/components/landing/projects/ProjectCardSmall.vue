@@ -11,7 +11,7 @@
         <div
           v-for="tag in props.techstack"
           :key="tag.toLowerCase()"
-          class="relative flex flex-nowrap whitespace-nowrap rounded-md bg-gray-300 px-2 py-1 text-xs font-normal"
+          class="bg-base-200 relative flex flex-nowrap whitespace-nowrap rounded-md px-2 py-1 text-xs font-normal"
         >
           {{ tag }}
         </div>

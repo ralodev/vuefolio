@@ -10,7 +10,7 @@
           <div
             v-for="tech in techstack"
             :key="tech.toLowerCase()"
-            class="relative flex flex-nowrap whitespace-nowrap rounded-md bg-gray-300 px-2 py-1 text-xs font-normal sm:text-sm"
+            class="bg-base-200 relative flex flex-nowrap whitespace-nowrap rounded-md px-2 py-1 text-xs font-normal sm:text-sm"
           >
             {{ tech }}
           </div>

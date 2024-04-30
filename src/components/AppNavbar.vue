@@ -1,6 +1,8 @@
 <template>
   <header class="fixed z-50 w-full">
-    <div class="z-10 bg-white text-xl uppercase text-zinc-800 shadow">
+    <div
+      class="z-10 bg-white text-xl uppercase text-zinc-800 shadow duration-300 sm:bg-white/50 sm:backdrop-blur-sm sm:hover:bg-white/80"
+    >
       <div class="content source-sans mx-auto flex w-full items-center justify-between py-4">
         <router-link class="open-sans my-auto flex items-center font-bold" to="/">
           John Doe

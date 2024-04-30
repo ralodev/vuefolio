@@ -1,5 +1,5 @@
 <template>
-  <footer class="divide-y bg-neutral-800 px-4 text-gray-100">
+  <footer class="bg-base-800 divide-y px-4 text-gray-100">
     <div
       class="container mx-auto flex flex-col justify-between space-y-8 py-10 lg:flex-row lg:space-y-0"
     >

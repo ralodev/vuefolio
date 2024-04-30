@@ -2,9 +2,9 @@
   <section
     id="about"
     name="about"
-    class="flex min-h-[80ch] w-full items-center justify-center bg-[#ececec] py-10"
+    class="section-background-color flex min-h-[80ch] w-full items-center justify-center py-10"
   >
-    <div class="content">
+    <div class="content text-black">
       <h1 class="section__title">
         {{ $t('about.title') }}
       </h1>

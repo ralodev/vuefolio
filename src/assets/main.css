@@ -10,7 +10,11 @@
 
 @layer base {
   .section__title {
-    @apply source-sans mb-5 w-full pt-20 text-center text-4xl font-semibold uppercase tracking-wider sm:mb-10 sm:text-5xl;
+    @apply source-sans mb-5 w-full pt-20 text-center text-4xl font-semibold uppercase tracking-wider sm:mb-10 sm:text-5xl text-base-950;
+  }
+  /* Values `50` and `100` are the most suitable for light backgrounds */
+  .section-background-color{
+    @apply text-base-100 bg-base-100
   }
 }
 

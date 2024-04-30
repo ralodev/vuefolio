@@ -1,7 +1,7 @@
 # Vuefolio
 
 <p align="center">
-<img align="center" width="800" src="https://i.postimg.cc/zvdTLyYq/vuefolio.webp">
+<img align="center" width="800" src="https://i.postimg.cc/VN3Qn3V3/Sin-t-tulo.webp">
 </p>
 
 Welcome to the Vuefolio Template project! This template is designed to help you create a professional portfolio by simply updating the `i18n` localization files and making minor adjustments. Whether you're a designer, developer, or any professional, this template can be adapted to fit your needs and showcase your work in multiple languages.
@@ -70,9 +70,16 @@ To change the visual appearance:
 
 Change the primary color: 
 1. Navigate to [UIColors](https://uicolors.app/create) and generate a palette with the color of your preference
-2. Opent the tailwind.config.js file and replace the current palette with the new one you generated.
+2. Opent the tailwind.config.js file and replace the `primary` or `base` palette with the values of the new one you generated.
 
-This will update the primary color in all of the components of the application.
+This will update the primary color in all of the components of the application. Play with different combinations or with the same color in both of the palettes to explore your possibilities!
+
+<p align="center">
+   <img align="center" width="100" src="https://i.postimg.cc/Y2Ns0K2v/gray-theme.jpg">
+   <img align="center" width="100" src="https://i.postimg.cc/pXqcQfFx/green-theme.jpg">
+   <img align="center" width="100" src="https://i.postimg.cc/fTwg02kB/orange-theme.jpg">
+   <img align="center" width="100" src="https://i.postimg.cc/L85CxJtP/pink-theme.jpg">
+</p>
 
 ### Adding Your Content
 Projects: Update the projects.ts file of your main language (e.g. `src/i18n/en/en_projects.ts`) Customize the information to showcase your projects, **keeping the syntax as it is to avoid errors**.

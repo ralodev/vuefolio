@@ -9,7 +9,7 @@
       <button
         id="states-button"
         @click="langDropdown = !langDropdown"
-        class="dropdown-toggle z-10 inline-flex flex-shrink-0 items-center gap-x-2 rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-center text-sm font-medium uppercase text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-100"
+        class="dropdown-toggle z-10 inline-flex flex-shrink-0 items-center gap-x-2 rounded-lg border border-gray-200 bg-gray-50/50 px-4 py-2.5 text-center text-sm font-semibold uppercase text-gray-800 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-100"
         type="button"
       >
         <component :is="selectedLanguageFlag" />

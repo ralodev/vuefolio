@@ -1,8 +1,10 @@
 <template>
-  <section class="home-hero flex w-full items-center justify-center">
-    <div class="content space-y-8 text-center">
+  <section class="hero relative flex w-full items-center justify-center">
+    <div class="hero__bg absolute inset-0"></div>
+
+    <div class="content relative space-y-8 text-center">
       <h1
-        class="source-sans text-balance text-4xl font-black uppercase tracking-wide sm:text-5xl md:text-6xl"
+        class="source-sans text-balance text-4xl font-black uppercase tracking-wide text-primary-950 sm:text-5xl md:text-6xl"
       >
         {{ $t('hero.title') }}
       </h1>
@@ -92,17 +94,18 @@
       </div>
     </div>
     <!-- Icon Scroll Credits: http://www.hnslack.xyz/ -->
-    <div class="icon-scroll hidden md:block"></div>
+    <div class="icon-scroll border-base-700 before:bg-base-700 hidden border-2 md:block"></div>
     <div class="custom-shape-divider-bottom-1713476723">
       <svg
         data-name="Layer 1"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1200 120"
         preserveAspectRatio="none"
+        class="section-background-color !bg-transparent"
       >
         <path
-          d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-          class="shape-fill"
+          d="M598.97 114.72L0 0 0 120 1200 120 1200 0 598.97 114.72z"
+          fill="currentColor"
         ></path>
       </svg>
     </div>
@@ -121,14 +124,16 @@ import FacebookIcon from '../icons/FacebookIcon.vue'
 </script>
 
 <style>
-.home-hero {
-  background: linear-gradient(to bottom, rgba(245, 245, 245, 0.8), rgba(245, 245, 245, 0.8)),
-    url('@/assets/common-bg.svg');
-  background-position: center;
+.hero {
   height: 100vh;
   min-height: 80ch;
   max-height: 120ch;
   position: relative;
+}
+.hero__bg {
+  opacity: 0.3;
+  background-image: url('@/assets/common-bg.svg');
+  background-position: center;
 }
 .custom-shape-divider-bottom-1713476723 {
   position: absolute;
@@ -137,14 +142,14 @@ import FacebookIcon from '../icons/FacebookIcon.vue'
   width: 100%;
   overflow: hidden;
   line-height: 0;
-  transform: rotate(180deg);
+  filter: drop-shadow(0 -5px 3px rgba(0, 0, 0, 0.2));
 }
 
 .custom-shape-divider-bottom-1713476723 svg {
   position: relative;
   display: block;
   width: calc(100% + 1.3px);
-  height: 150px;
+  height: 100px;
 }
 
 .custom-shape-divider-bottom-1713476723 .shape-fill {
@@ -160,9 +165,8 @@ import FacebookIcon from '../icons/FacebookIcon.vue'
   width: 27px;
   height: 45px;
   margin-left: -14px;
-  bottom: 10px;
+  bottom: 20px;
   margin-top: -35px;
-  border: 2px solid #000;
   opacity: 50%;
   border-radius: 25px;
 }
@@ -170,8 +174,7 @@ import FacebookIcon from '../icons/FacebookIcon.vue'
   content: '';
   width: 8px;
   height: 8px;
-  background: #000;
-  margin-left: -4px;
+  margin-left: -3px;
   top: 8px;
   border-radius: 4px;
   animation-duration: 1.5s;

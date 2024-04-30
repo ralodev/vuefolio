@@ -1,19 +1,7 @@
 <template>
   <CollapsiblePanel :header="$t('about.education.title')" toggleable>
     <template #icon>
-      <svg
-        class="my-auto mr-2 h-8 w-8"
-        viewBox="0 0 24 24"
-        stroke-width="2"
-        stroke="currentColor"
-        fill="none"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-        <path d="M22 9l-10 -4l-10 4l10 4l10 -4v6" />
-        <path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4" />
-      </svg>
+      <EducationIcon class="me-2 h-8 w-8" />
     </template>
     <ul class="space-y-5">
       <li v-for="edu in educationPrograms" :key="edu.id" class="flex flex-col">
@@ -30,7 +18,7 @@
         </p>
         <div class="-mx-2 w-full">
           <span
-            class="source-sans mx-2 inline-block min-w-1 rounded-md bg-gray-300 px-3 py-1 text-xs uppercase text-gray-800"
+            class="source-sans bg-base-200 mx-2 inline-block min-w-1 rounded-md px-3 py-1 text-xs uppercase"
             v-for="course in edu.courses"
             :key="course"
             >{{ course }}</span
@@ -46,6 +34,7 @@
 
 <script lang="ts" setup>
 import CollapsiblePanel from '@/components/CollapsiblePanel.vue'
+import EducationIcon from '@/components/icons/EducationIcon.vue'
 import en_about from '@/i18n/en/en_about'
 
 const dateOptions: Intl.DateTimeFormatOptions = {
