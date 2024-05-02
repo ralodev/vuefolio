@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import GlassButton from '@/components/GlassButton.vue'
-const WEB3FORMS_ACCESS_KEY = 'a492c371-8aa4-42fc-9f22-453715749f65'
+// Get your key for free in: https://web3forms.com/
+const WEB3FORMS_ACCESS_KEY = 'YOUR_ACCESS_KEY'
 const name = ref('')
 const email = ref('')
 const message = ref('')
@@ -18,16 +19,12 @@ const checkMessageAvailable = () => {
   if (lastMessage) {
     let lastMessageTime = new Date(lastMessage)
     let currentTime = new Date()
-    // Calculamos la diferencia en milisegundos
     let difference = currentTime.getTime() - lastMessageTime.getTime()
-    // Convertimos la diferencia a minutos
     let differenceInMinutes = difference / 60000
     if (differenceInMinutes < 30) {
-      // Convertir la diferencia de nuevo a minutos y segundos para la salida
       let minutes = 30 - Math.floor(differenceInMinutes)
       let seconds = 59 - Math.floor((difference % (1000 * 60)) / 1000)
       cooldownTimeLeft.value = `${minutes}:${seconds.toString().padStart(2, '0')}`
-      // Check again in 1 sec
       setTimeout(() => {
         checkMessageAvailable()
       }, 1000)
