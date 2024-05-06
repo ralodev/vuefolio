@@ -164,7 +164,7 @@ import FacebookIcon from '../icons/FacebookIcon.vue'
   left: 50%;
 }
 .icon-scroll {
-  width: 27px;
+  width: 26px;
   height: 45px;
   margin-left: -14px;
   bottom: 30px;
@@ -176,7 +176,7 @@ import FacebookIcon from '../icons/FacebookIcon.vue'
   content: '';
   width: 8px;
   height: 8px;
-  margin-left: -3px;
+  margin-left: -4px;
   top: 8px;
   border-radius: 4px;
   animation-duration: 1.5s;
