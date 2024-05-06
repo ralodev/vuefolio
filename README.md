@@ -1,14 +1,10 @@
 # Vuefolio
 
 <p align="center">
-<img align="center" width="800" src="https://i.postimg.cc/VN3Qn3V3/Sin-t-tulo.webp">
+<img align="center" width="800" src="https://i.postimg.cc/nz6T6gfB/vuefolio-netlify-app.webp">
 </p>
 
 Welcome to the Vuefolio Template project! This template is designed to help you create a professional portfolio by simply updating the `i18n` localization files and making minor adjustments. Whether you're a designer, developer, or any professional, this template can be adapted to fit your needs and showcase your work in multiple languages.
-
-<p align="center">
-   <img align="center" width="600" src="https://i.postimg.cc/cCqfwprb/vuefolio.gif">
-</p>
 
 ## Features
 
@@ -17,10 +13,10 @@ Welcome to the Vuefolio Template project! This template is designed to help you 
 - **Responsive Design**: Looks great on both mobile and desktop devices.
 - **Customizable Styling**: Change colors and fonts with minimal adjustments.
 - **SEO Friendly**: Pre-configured with basic SEO best practices.
-- **Great Scores**: Highly performant in website audits ([PageSpeed](https://pagespeed.web.dev/analysis/https-vuefolio-netlify-app/h7bzs3qwrb?form_factor=desktop))
+- **Great Scores**: Highly performant in website audits ([PageSpeed](https://pagespeed.web.dev/analysis/https-vuefolio-netlify-app/ijy8r6njbj?form_factor=desktop))
 
 <p align="center">
-<img align="center" width="600" src="https://i.postimg.cc/QNSQYy9v/pagespeed.webp">
+<img align="center" width="600" src="https://i.postimg.cc/C5kJY7wt/image.webp">
 </p>
 
 ## Getting Started
