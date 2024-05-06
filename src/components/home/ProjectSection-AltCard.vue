@@ -13,13 +13,16 @@
           {{ tag }}
         </span>
       </div>
-      <textarea
-        role="textbox"
-        :value="description"
-        aria-readonly="true"
-        class="text-ltext2 h-20 resize-none text-sm font-normal focus:outline-none focus:ring-0 sm:h-28 md:text-base"
-        readonly
-      />
+      <label>
+        <span class="sr-only">Project description</span>
+        <textarea
+          role="textbox"
+          :value="description"
+          aria-readonly="true"
+          class="text-ltext2 h-20 w-full resize-none text-sm font-normal focus:outline-none focus:ring-0 sm:h-28 md:text-base"
+          readonly
+        />
+      </label>
       <div class="flex justify-end space-x-2">
         <a v-if="src != ''" :href="src" target="_blank" ref="noreferrer noopener">
           <GlassButton bg="bg-gray-600" size="small">

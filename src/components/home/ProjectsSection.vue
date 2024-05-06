@@ -28,7 +28,7 @@
         </li>
       </ul>
       <ul class="grid gap-10 md:grid-cols-2">
-        <li class="flex" v-for="project in other_projects" :key="project.name">
+        <li class="flex w-full" v-for="project in other_projects" :key="project.name">
           <ProjectCardSmall
             :name="project.name"
             :description="project.description"
