@@ -1,5 +1,5 @@
 <template>
-  <section id="experience" name="experience" class="section-background-color">
+  <section id="experience" name="experience" class="section-background-color pt-10">
     <div class="text-black">
       <h1 class="section__title">
         {{ $t('experience.title') }}
@@ -23,17 +23,10 @@
           <ul
             class="relative col-span-12 ps-4 before:absolute before:-left-3 before:bottom-0 before:top-[5px] before:w-0.5 before:bg-gray-300 sm:col-span-8"
           >
-            <ExperienceElement
-              v-for="job in experience"
-              :key="job.id"
+            <ExperienceSectionEntry
+              v-for="job in jobList"
+              :key="job.position + job.startDate"
               v-bind="job"
-              :title="$t(`experience.list[${job.id}].position`)"
-              :url="$t(`experience.list[${job.id}].url`)"
-              :start="$t(`experience.list[${job.id}].startDate`)"
-              :end="$t(`experience.list[${job.id}].endDate`)"
-              :company="$t(`experience.list[${job.id}].name`)"
-              :description="$t(`experience.list[${job.id}].summary`)"
-              :highlights="$t(`experience.list[${job.id}].highlights`).split(';')"
             />
           </ul>
         </div>
@@ -44,9 +37,26 @@
 
 <script lang="ts" setup>
 import GlassButton from '@/components/GlassButton.vue'
-import en_experience from '@/i18n/en/en_experience'
-import ExperienceElement from './ExperienceElement.vue'
-const experience = en_experience.list
+import ExperienceSectionEntry from './ExperienceSection-Entry.vue'
+import { ref, watch } from 'vue'
+import { useI18n } from 'vue-i18n'
+import type { JobEntry } from '@/types'
+
+const { tm, locale } = useI18n()
+
+const jobList = ref<JobEntry[]>([])
+
+function loadJobList() {
+  jobList.value = tm('experience.list') as JobEntry[]
+}
+
+watch(
+  () => locale.value,
+  () => {
+    loadJobList()
+  },
+  { immediate: true }
+)
 </script>
 
 <style scoped>

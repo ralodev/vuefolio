@@ -1,10 +1,10 @@
-export default {
+import type { Hero } from '@/types'
+
+const hero: Hero = {
   title: 'Hello, my name is John Doe',
   subtitle:
     "I've mastered the art of turning coffee into code and chaos into order. My passion for solving problems is matched only by my love for making homemade pancakes on Sunday mornings.",
   name: 'John Phillip Doe',
-  summary:
-    "A seasoned juggler of tasks and an enthusiast of all things tech, I've mastered the art of turning coffee into code and chaos into order. My passion for solving problems is matched only by my love for making homemade pancakes on Sunday mornings.",
   email: 'johndoe@mail.com',
   url: 'https://john-does.com/',
   contact_button: 'Get in touch',
@@ -19,3 +19,5 @@ export default {
   },
   home: 'Home'
 }
+
+export default hero

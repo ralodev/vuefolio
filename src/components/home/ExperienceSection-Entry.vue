@@ -4,10 +4,11 @@
   >
     <article>
       <h1 class="open-sans text-xl font-bold text-primary-900">
-        {{ props.title }}
+        {{ props.position }}
       </h1>
-      <time class="font-mono text-sm font-semibold text-gray-700 sm:text-sm">
-        {{ props.start }} - {{ props.end }} ({{ totalTime() }} {{ $t('experience.months') }})
+      <time class="gap-2 font-mono text-sm font-semibold text-gray-700 sm:flex sm:text-sm">
+        {{ props.startDate }} - {{ props.endDate }}
+        <p>({{ totalTime() }})</p>
       </time>
       <span class="block">
         <component
@@ -54,19 +55,19 @@
 import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
 const props = defineProps({
-  title: {
+  position: {
     type: String,
-    default: 'Job Title'
+    default: 'Job position'
   },
   url: {
     type: String,
     default: '#'
   },
-  start: {
+  startDate: {
     type: String,
     default: 'Start Date'
   },
-  end: {
+  endDate: {
     type: String,
     default: 'Present'
   },
@@ -83,25 +84,18 @@ const props = defineProps({
     default: () => []
   }
 })
-
 const totalTime = () => {
-  if (props.end === t('experience.present')) {
-    const startDate = new Date(props.start)
-    const currentDate = new Date()
-    const months =
-      currentDate.getMonth() -
-      startDate.getMonth() +
-      12 * (currentDate.getFullYear() - startDate.getFullYear())
-    return months
-  } else {
-    const startDate = new Date(props.start)
-    const endDate = new Date(props.end)
-    const months =
-      endDate.getMonth() -
-      startDate.getMonth() +
-      12 * (endDate.getFullYear() - startDate.getFullYear())
-    return months
-  }
+  const startDate = new Date(props.startDate)
+  const endDate = props.endDate === t('experience.present') ? new Date() : new Date(props.endDate)
+  const total_months =
+    endDate.getMonth() -
+    startDate.getMonth() +
+    12 * (endDate.getFullYear() - startDate.getFullYear())
+  const months = total_months % 12
+  const years = (total_months / 12) | 10
+  return years == 0
+    ? `${months} ${t('experience.month', months)}`
+    : `${years} ${t('experience.year', years)}, ${months} ${t('experience.month', months)}`
 }
 </script>
 

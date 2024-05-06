@@ -4,11 +4,13 @@
 
     <div class="content relative space-y-8 text-center">
       <h1
-        class="source-sans text-balance text-4xl font-black uppercase tracking-wide text-primary-950 sm:text-5xl md:text-6xl"
+        class="source-sans lg:6xl text-balance text-5xl font-black uppercase tracking-wide text-primary-950 md:text-6xl"
       >
         {{ $t('hero.title') }}
       </h1>
-      <p class="open-sans max-w-[80ch] text-pretty text-base sm:text-lg md:text-xl">
+      <p
+        class="open-sans mx-auto max-w-[60ch] text-pretty text-base sm:text-lg md:text-xl lg:max-w-[75ch]"
+      >
         {{ $t('hero.subtitle') }}
       </p>
       <div class="flex justify-center gap-x-3">
@@ -94,17 +96,17 @@
       </div>
     </div>
     <!-- Icon Scroll Credits: http://www.hnslack.xyz/ -->
-    <div class="icon-scroll border-base-700 before:bg-base-700 hidden border-2 md:block"></div>
+    <div class="icon-scroll hidden border-2 border-base-700 before:bg-base-700 md:block"></div>
     <div class="custom-shape-divider-bottom-1713476723">
       <svg
         data-name="Layer 1"
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1200 120"
+        viewBox="0 00 1200 130"
         preserveAspectRatio="none"
         class="section-background-color !bg-transparent"
       >
         <path
-          d="M598.97 114.72L0 0 0 120 1200 120 1200 0 598.97 114.72z"
+          d="M598.97 114.72L0 0 0 130 1200 130 1200 0 598.97 114.72z"
           fill="currentColor"
         ></path>
       </svg>
@@ -165,7 +167,7 @@ import FacebookIcon from '../icons/FacebookIcon.vue'
   width: 27px;
   height: 45px;
   margin-left: -14px;
-  bottom: 20px;
+  bottom: 30px;
   margin-top: -35px;
   opacity: 50%;
   border-radius: 25px;

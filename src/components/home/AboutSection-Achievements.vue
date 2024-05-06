@@ -1,18 +1,18 @@
 <template>
-  <CollapsiblePanel :header="$t('about.achievements.title')" toggleable class="mt-5">
+  <CollapsiblePanel collapsed :header="$t('about.achievements.title')" toggleable class="mt-5">
     <template #icon>
       <TrophyIcon class="h-8 w-8" />
     </template>
     <ul class="space-y-10">
-      <li v-for="achievement in achievements" :key="achievement.id" class="mx-auto max-w-[80ch]">
-        <p class="experience__title source-sans text-xl font-semibold tracking-wide text-gray-800">
-          {{ $t(`about.achievements.list[${achievement.id}].title`) }}
+      <li v-for="achievement in achievements" :key="achievement.title" class="mx-auto max-w-[80ch]">
+        <p class="source-sans text-xl font-semibold tracking-wide text-gray-800">
+          {{ achievement.title }}
         </p>
         <div
-          class="before:bg-base-200 hover:bg-base-100 relative w-full ps-5 transition-all duration-500 before:absolute before:bottom-0 before:left-0 before:top-[5px] before:w-1"
+          class="relative w-full ps-5 transition-all duration-500 before:absolute before:bottom-0 before:left-0 before:top-[5px] before:w-1 before:bg-base-200 hover:bg-base-100"
         >
-          <time class="experience__time source-sans float-end text-sm uppercase text-gray-800">
-            {{ toFixedDate($t(`about.achievements.list[${achievement.id}].date`)) }}</time
+          <time class="source-sans text-sm uppercase text-gray-800 sm:float-end">
+            {{ toFixedDate(achievement.date) }}</time
           >
           <a
             v-if="achievement.url"
@@ -32,12 +32,11 @@
               </g>
             </svg>
           </a>
-
           <p class="experience__company font-semibold text-gray-800">
-            {{ $t(`about.achievements.list[${achievement.id}].awarder`) }}
+            {{ achievement.awarder }}
           </p>
           <p class="experience__description">
-            {{ $t(`about.achievements.list[${achievement.id}].summary`) }}
+            {{ achievement.summary }}
           </p>
         </div>
       </li>
@@ -48,10 +47,24 @@
 <script setup lang="ts">
 import CollapsiblePanel from '@/components/CollapsiblePanel.vue'
 import TrophyIcon from '@/components/icons/TrophyIcon.vue'
-import en_about from '@/i18n/en/en_about'
+import type { AchievementEntry } from '@/types'
 import { useI18n } from 'vue-i18n'
+import { ref, watch } from 'vue'
+const { tm, locale } = useI18n()
 
-const { locale } = useI18n()
+const achievements = ref<AchievementEntry[]>([])
+
+function loadAchievements() {
+  achievements.value = tm('about.achievements.list')
+}
+
+watch(
+  () => locale.value,
+  () => {
+    loadAchievements()
+  },
+  { immediate: true }
+)
 
 const dateOptions: Intl.DateTimeFormatOptions = {
   year: 'numeric',
@@ -62,5 +75,4 @@ const toFixedDate = (stringDate: string) => {
   const toDate = new Date(stringDate)
   return toDate.toLocaleDateString(locale.value, dateOptions)
 }
-const achievements = en_about.achievements.list
 </script>

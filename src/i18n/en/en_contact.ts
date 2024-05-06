@@ -1,9 +1,12 @@
-export default {
+import type { Contact } from '@/types'
+
+const contact: Contact = {
   title: 'Contact',
   description:
     'If you want to get in touch with me, you can do it through my social media or via email.',
   social: 'There are my social media accounts and my email address:',
-  email: "johndow{'@'}mail.com",
+  //Keep the brackets and quotes around @ -> {'@'}
+  email: "johndoe{'@'}mail.com",
   copy: 'Copy',
   copied: 'Copied',
   form: 'Alternatively, you can use this form to send me a message:',
@@ -17,3 +20,5 @@ export default {
   sending: 'Sending...',
   restriction: 'You can send one message every 30 minutes, please wait.'
 }
+
+export default contact

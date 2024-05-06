@@ -1,15 +1,13 @@
 <template>
-  <div class="panel border-base-200 rounded-2xl border-2">
+  <div class="panel rounded-2xl border-2 border-base-200">
     <div
       class="sticky top-[70px] z-[2] flex cursor-pointer rounded-t-2xl border-b-2 bg-gray-50 px-2 py-2 transition-all duration-300"
       :class="
-        collapsed
-          ? 'rounded-b-xl border-transparent '
-          : ' rounded-b-none border-primary-200 delay-0'
+        collapsed ? 'rounded-b-xl border-transparent ' : ' rounded-b-none border-base-200 delay-0'
       "
       @click="toggle"
     >
-      <header class="text-base-700 flex space-x-2 ps-1">
+      <header class="flex space-x-2 ps-1 text-base-800">
         <slot name="icon"></slot>
         <span v-if="header" class="source-sans my-auto text-xl font-semibold sm:text-2xl">{{
           header
@@ -51,6 +49,7 @@
 
 <script lang="ts" setup>
 import { ref, watch, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 const props = defineProps({
   header: {
@@ -64,13 +63,14 @@ const props = defineProps({
   },
   collapsed: {
     type: Boolean,
-    default: true
+    default: false
   }
 })
 
 const collapsed = ref(props.collapsed)
 const maxHeight = ref<string>('0')
 const content = ref<HTMLElement | null>(null)
+const { locale } = useI18n()
 
 const calculateMaxHeight = () => {
   return content.value?.scrollHeight + 'px'
@@ -83,12 +83,18 @@ const toggle = () => {
 
 watch(
   () => props.collapsed,
-  (newValue) => {
-    collapsed.value = newValue
+  () => {
     maxHeight.value = collapsed.value ? '0' : calculateMaxHeight()
   }
 )
-
+watch(
+  () => locale.value,
+  () => {
+    setTimeout(() => {
+      maxHeight.value = collapsed.value ? '0' : calculateMaxHeight()
+    }, 100)
+  }
+)
 onMounted(() => {
   maxHeight.value = collapsed.value ? '0' : calculateMaxHeight()
 })

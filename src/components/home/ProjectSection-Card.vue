@@ -1,24 +1,27 @@
 <template>
-  <article class="relative w-full">
+  <article class="relative w-full rounded-xl border bg-white py-6 shadow-md">
     <div class="relative flex flex-col gap-2 font-medium md:flex-row">
-      <div class="order-2 flex w-full flex-col justify-center px-6 md:w-1/2 md:px-2">
-        <h2 class="open-sans text-ltext1 text-2xl font-bold text-slate-700 sm:text-4xl">
+      <div class="order-2 flex w-full flex-col justify-center gap-y-2 px-6 py-3 md:w-1/2 md:px-2">
+        <h2
+          class="open-sans text-ltext1 text-center text-2xl font-bold text-slate-700 sm:text-start sm:text-4xl"
+        >
           {{ name }}
         </h2>
-        <hr />
-        <div class="source-sans my-2 flex flex-wrap gap-2 font-medium">
-          <div
+        <div
+          class="source-sans my-2 flex flex-wrap justify-center gap-2 font-medium sm:justify-start"
+        >
+          <span
             v-for="tech in techstack"
             :key="tech.toLowerCase()"
-            class="bg-base-200 relative flex flex-nowrap whitespace-nowrap rounded-md px-2 py-1 text-xs font-normal sm:text-sm"
+            class="relative flex flex-nowrap whitespace-nowrap rounded-md bg-base-200 px-2 py-1 text-xs font-normal sm:text-sm"
           >
             {{ tech }}
-          </div>
+          </span>
         </div>
-        <p class="text-ltext2 open-sans pt-2 text-sm sm:text-base">
+        <p class="text-ltext2 open-sans text-justify text-base sm:text-start">
           {{ description }}
         </p>
-        <div class="flex gap-5 pt-3">
+        <div class="flex justify-center gap-5 pt-3 sm:justify-start">
           <a
             v-if="src"
             :title="`${props.name} github repository`"
@@ -29,14 +32,13 @@
             <GlassButton
               :title="`${props.name} github repository`"
               type="button"
-              bg="bg-slate-700"
-              :disabled="!src"
+              bg="bg-slate-600"
               padding="16"
             >
               <template #icon>
                 <GithubIcon class="h-6 w-6" />
               </template>
-              Source
+              {{ $t('projects.source') }}
             </GlassButton>
           </a>
           <a v-if="url != ''" :href="url" target="_blank" rel="noreferrer noopener">
@@ -44,7 +46,7 @@
               <template #icon>
                 <WebIcon class="h-6 w-6" />
               </template>
-              Demo
+              {{ $t('projects.website') }}
             </GlassButton>
           </a>
         </div>
@@ -65,7 +67,7 @@
               <img
                 :src="getImageUrl()"
                 :alt="name + ' main image'"
-                class="mx-auto max-h-[490px] object-cover object-center"
+                class="mx-auto object-cover object-center sm:max-h-[300px]"
               />
             </div>
           </div>
@@ -112,7 +114,7 @@ const props = defineProps({
 })
 
 const getImageUrl = () => {
-  return new URL(`../../../assets/img/projects/${props.image}`, import.meta.url).href
+  return new URL(`../../assets/img/projects/${props.image}`, import.meta.url).href
 }
 </script>
 

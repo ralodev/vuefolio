@@ -1,33 +1,22 @@
-export default {
+import type { Projects } from '@/types'
+
+const projects: Projects = {
   title: 'Proyectos',
-  demo: 'Demo',
-  case: 'Estudio de caso',
-  live: 'en vivo',
-  list: [
+  source: 'GitHub',
+  website: 'Sitio Web',
+  main: [
     {
-      id: 0,
-      name: 'PancakeSorter3000',
-      techstack: ['JavaScript', 'React', 'Python'],
-      image: 'project_cover.webp',
+      name: 'Vuefolio',
+      techstack: ['Vuejs', 'i18n', 'TypeScript', 'Tailwind CSS'],
+      image: 'vuefolio_cover.webp',
       description:
-        'Una aplicación web innovadora diseñada para ayudar a los entusiastas del desayuno a ordenar sus panqueques por tamaño y esponjosidad mediante algoritmos de reconocimiento de imagen y aprendizaje automático de última generación. Perfecta para aquellos que se toman en serio el orden de su pila de panqueques.',
-      src: 'https://github.com/johndoe/pancakesorter3000',
-      url: 'https://awesome-pancakesorter3000.com/'
+        'Una plantilla de portafolio construida con Vue.js, i18n y TypeScript. Es altamente personalizable, fácil de configurar y completamente optimizada para rendimiento, SEO y accesibilidad.',
+      src: 'https://github.com/ralodev/vuefolio',
+      url: 'https://vuefolio.netlify.app/'
     },
     {
-      id: 1,
-      name: 'CatNapScheduler',
-      techstack: ['Swift', 'Kotlin', 'Firebase'],
-      image: 'project_cover.webp',
-      description:
-        'Una aplicación de vanguardia diseñada para los gatos más ocupados y sus dueños. Programa siestas, rastrea patrones de sueños y sincroniza las horas de sueño con tu mascota para maximizar la eficiencia de los mimos. Se integra purr-fectamente con dispositivos inteligentes para el hogar.',
-      src: 'https://github.com/johndoe/catnapscheduler',
-      url: 'https://ultimate-catnapscheduler.com/'
-    },
-    {
-      id: 2,
       name: 'AlienSignalDetector',
-      techstack: ['Rust', 'Vue.js', 'WebAssembly'],
+      techstack: ['Morse', 'Windows 95', 'WebAssembly', 'Firebase'],
       image: 'project_cover.webp',
       description:
         'Aplicación revolucionaria que utiliza las últimas tecnologías web para escanear la radiación de fondo de microondas cósmicas en busca de señales alienígenas. Perfecta para astrónomos aficionados y entusiastas de la ciencia ficción que quieren ser los primeros en tuitear sobre el contacto extraterrestre.',
@@ -35,48 +24,50 @@ export default {
       url: 'https://detect-alien-signals-now.com/'
     },
     {
-      id: 3,
       name: 'QuantumCoffeeBrewer',
-      techstack: ['Quantum Computing', 'Q#', 'Azure'],
+      techstack: ['Quantum Computing', 'Q#', 'Azure', 'Amazon S3'],
       image: 'project_cover.webp',
       description:
-        'Aprovecha el poder de la computación cuántica para preparar la taza de café perfecta. Esta aplicación calcula la temperatura óptima y el tiempo de preparación basándose en la mecánica cuántica, prometiendo las moléculas de cafeína más enredadas y superpuestas.',
+        'Aprovecha el poder de la computación cuántica para preparar la taza de café perfecta. Esta aplicación calcula la temperatura óptima y el tiempo de preparación basado en la mecánica cuántica, prometiendo moléculas de cafeína más enredadas y en superposición.',
       src: 'https://github.com/johndoe/quantumcoffeebrewer',
       url: 'https://quantumcoffeebrewer.com/'
     }
   ],
-  list_secondary: [
+  // Puedes dejar este arreglo vacío
+  other: [
     {
-      id: 0,
       name: 'MemeGeneratorX',
-      techstack: ['JavaScript', 'Visual Basic'],
+      techstack: ['Binario', 'Notepad ++', 'MS Paint'],
       description:
-        'Una herramienta avanzada, impulsada por IA, que genera memes personalizados basados en tu estado de ánimo. Simplemente dile cómo te sientes y se encargará del resto. Perfecta para aquellos que necesitan expresarse pero no encuentran las palabras.',
+        'Una herramienta avanzada, impulsada por IA, que genera memes personalizados basados en tu estado de ánimo. Solo dile cómo te sientes, y él hará el resto. Perfecto para aquellos que necesitan expresarse pero no encuentran las palabras adecuadas.',
+      url: 'https://github.com/johndoes/MemeGeneratorX',
       src: 'https://github.com/johndoes/MemeGeneratorX'
     },
     {
-      id: 1,
       name: 'VirtualBakeOff',
-      techstack: ['Python', 'Kobra'],
+      techstack: ['Aplicación de notas de Blackberry', 'MSDOS'],
       description:
-        'Una aplicación de realidad virtual que te permite competir en concursos de repostería desde la comodidad de tu cocina. Utiliza la VR de última generación para preparar pasteles y postres digitales juzgados por una IA que ha visto todos los programas de repostería del planeta.',
+        'Sumérgete en el reino caprichoso de una aplicación de realidad virtual que te otorga la extraordinaria capacidad de participar en emocionantes competiciones de repostería, ¡todo desde la comodidad de tu propia cocina! Aprovechando el ilimitado potencial de la tecnología VR de vanguardia, emprenderás una odisea culinaria, elaborando una variedad de deliciosos pasteles y repostería digital que deleitarán el paladar tanto de mortales como de deidades. \n\nPero he aquí, la pieza de resistencia de esta escapada fantástica radica en el juicio impecable de una inteligencia artificial, perfeccionada a través de la observación meticulosa no solo de cada programa de cocina que jamás haya adornado el plano terrestre, sino también inspirada en los anales ilustres del entretenimiento animado como los venerados épicos de Futurama y la hilaridad irreverente de Los Simpsons. ¡Oh, las historias que podría contarte, pero lamentablemente, eso es una narrativa para otro momento, anidada dentro de los anales de la leyenda culinaria y la maravilla tecnológica!',
+      url: 'https://github.com/johndoes/VirtualBakeOff',
       src: 'https://github.com/johndoes/VirtualBakeOff'
     },
     {
-      id: 2,
       name: 'SleepyTimeScheduler',
-      techstack: ['Ruby', 'Azure', 'MS Paint'],
+      techstack: ['Ruby', 'Iconify', 'Rust'],
       description:
-        'Un programador dinámico, impulsado por algoritmos, que decide cuándo debes dormir basado en tu actividad en redes sociales. Porque ¿por qué decidir cuándo dormir cuando una aplicación puede hacerlo por ti?',
+        'Un programador dinámico y basado en algoritmos que decide cuándo deberías dormir basado en tu actividad en redes sociales. Porque, ¿por qué decidir tú cuándo dormir cuando una aplicación puede hacerlo por ti?',
+      url: 'https://github.com/johndoes/SleepyTimeScheduler',
       src: 'https://github.com/johndoes/SleepyTimeScheduler'
     },
     {
-      id: 3,
       name: 'PlantWhisperer',
-      techstack: ['Kotlin 3', 'MongoDB', 'Blogger'],
+      techstack: ['Kotlin', 'Spark AR', 'Blogger', 'Blender'],
       description:
-        'Una aplicación para amantes de las plantas que traduce las necesidades de tus plantas a un inglés sencillo. ¿Alguna vez te has preguntado si tu helecho tiene sed o tu cactus se siente solo? Deja que PlantWhisperer te diga lo que realmente están pensando.',
+        'Una aplicación para amantes de las plantas que traduce las necesidades de tus plantas al inglés claro. ¿Alguna vez te has preguntado si tu helecho tiene sed o tu cactus está solo? ¡Deja que PlantWhisperer te diga lo que realmente están pensando!',
+      url: 'https://github.com/johndoes/PlantWhisperer',
       src: 'https://github.com/johndoes/PlantWhisperer'
     }
   ]
 }
+
+export default projects

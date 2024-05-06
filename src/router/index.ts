@@ -1,4 +1,4 @@
-import LandingView from '@/views/LandingView.vue'
+import LandingView from '@/views/HomeView.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -11,14 +11,13 @@ const router = createRouter({
     }
   ],
   scrollBehavior(to) {
-    // if link has anchor, scroll to anchor
     if (to.hash) {
       return {
         el: to.hash,
+        top: 80,
         behavior: 'smooth'
       }
     }
-    // else scroll to top
     return {
       top: 0,
       behavior: 'smooth'

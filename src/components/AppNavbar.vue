@@ -1,11 +1,16 @@
 <template>
   <header class="fixed z-50 w-full">
-    <div
-      class="z-10 bg-white text-xl uppercase text-zinc-800 shadow duration-300 sm:bg-white/50 sm:backdrop-blur-sm sm:hover:bg-white/80"
-    >
+    <div class="z-10 bg-base-50 text-xl uppercase text-zinc-800 shadow duration-300">
       <div class="content source-sans mx-auto flex w-full items-center justify-between py-4">
-        <router-link class="open-sans my-auto flex items-center font-bold" to="/">
-          John Doe
+        <router-link
+          class="open-sans group my-auto flex items-center gap-2 font-bold text-primary-900"
+          to="/"
+        >
+          <img
+            src="@/assets/img/profile.webp"
+            class="h-10 w-10 rounded-full rounded-tl-none duration-500 sm:group-hover:rounded-br-sm sm:group-hover:rounded-tl-full"
+          />
+          Vuefolio
         </router-link>
         <div class="flex items-center space-x-2 font-semibold">
           <nav class="hidden items-center space-x-2 md:flex [&>a]:px-1">

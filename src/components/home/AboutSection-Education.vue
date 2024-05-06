@@ -4,28 +4,27 @@
       <EducationIcon class="me-2 h-8 w-8" />
     </template>
     <ul class="space-y-5">
-      <li v-for="edu in educationPrograms" :key="edu.id" class="flex flex-col">
+      <li v-for="edu in education" :key="edu.title" class="flex flex-col">
         <p class="experience__title source-sans text-xl font-semibold tracking-wide text-gray-800">
-          {{ $t(`about.education.list[${edu.id}].title`) }}
+          {{ edu.title }}
         </p>
         <time class="experience__time source-sans text-sm uppercase text-gray-800">
-          {{ toFixedDate($t(`about.education.list[${edu.id}].startDate`)) }} -
-          {{ toFixedDate($t(`about.education.list[${edu.id}].endDate`)) }}</time
+          {{ toFixedDate(edu.startDate) }} - {{ toFixedDate(edu.endDate) }}</time
         >
 
         <p class="experience__company open-sans font-semibold text-gray-700">
-          @ {{ $t(`about.education.list[${edu.id}].institution`) }}
+          @ {{ edu.institution }}
         </p>
         <div class="-mx-2 w-full">
           <span
-            class="source-sans bg-base-200 mx-2 inline-block min-w-1 rounded-md px-3 py-1 text-xs uppercase"
+            class="source-sans mx-2 inline-block min-w-1 rounded-md bg-base-200 px-3 py-1 text-xs uppercase"
             v-for="course in edu.courses"
             :key="course"
             >{{ course }}</span
           >
         </div>
         <p class="experience__description">
-          {{ $t(`about.education.list[${edu.id}].description`) }}
+          {{ edu.description }}
         </p>
       </li>
     </ul>
@@ -35,7 +34,24 @@
 <script lang="ts" setup>
 import CollapsiblePanel from '@/components/CollapsiblePanel.vue'
 import EducationIcon from '@/components/icons/EducationIcon.vue'
-import en_about from '@/i18n/en/en_about'
+import type { EducationEntry } from '@/types'
+import { useI18n } from 'vue-i18n'
+import { ref, watch } from 'vue'
+const { tm, locale } = useI18n()
+
+const education = ref<EducationEntry[]>([])
+
+function loadEducation() {
+  education.value = tm('about.education.list')
+}
+
+watch(
+  () => locale.value,
+  () => {
+    loadEducation()
+  },
+  { immediate: true }
+)
 
 const dateOptions: Intl.DateTimeFormatOptions = {
   year: 'numeric',
@@ -43,7 +59,6 @@ const dateOptions: Intl.DateTimeFormatOptions = {
 }
 const toFixedDate = (stringDate: string) => {
   const toDate = new Date(stringDate)
-  return toDate.toLocaleDateString('en-US', dateOptions)
+  return toDate.toLocaleDateString(locale.value, dateOptions)
 }
-const educationPrograms = en_about.education.list
 </script>

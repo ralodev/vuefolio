@@ -9,9 +9,3 @@ import AppFooter from '@/components/AppFooter.vue'
   <RouterView />
   <AppFooter />
 </template>
-
-<style>
-body {
-  background-color: #fff;
-}
-</style>
