@@ -3,7 +3,7 @@
     <div
       class="sticky top-[70px] z-[2] flex cursor-pointer rounded-t-2xl border-b-2 bg-gray-50 px-2 py-2 transition-all duration-300"
       :class="
-        collapsed ? 'rounded-b-xl border-transparent ' : ' rounded-b-none border-base-200 delay-0'
+        expanded ? ' rounded-b-none border-base-200 delay-0' : 'rounded-b-xl border-transparent '
       "
       @click="toggle"
     >
@@ -30,7 +30,7 @@
           stroke-linejoin="round"
         >
           <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-          <path class="transition duration-300" d="M12 5l0 14" :opacity="collapsed ? '1' : '0'" />
+          <path class="transition duration-300" d="M12 5l0 14" :opacity="expanded ? '0' : '1'" />
           <path d="M5 12l14 0" />
         </svg>
       </button>
@@ -61,13 +61,13 @@ const props = defineProps({
     type: Boolean,
     default: true
   },
-  collapsed: {
+  expanded: {
     type: Boolean,
     default: false
   }
 })
 
-const collapsed = ref(props.collapsed)
+const expanded = ref(props.expanded)
 const maxHeight = ref<string>('0')
 const content = ref<HTMLElement | null>(null)
 const { locale } = useI18n()
@@ -77,26 +77,26 @@ const calculateMaxHeight = () => {
 }
 
 const toggle = () => {
-  collapsed.value = !collapsed.value
-  maxHeight.value = collapsed.value ? '0' : calculateMaxHeight()
+  expanded.value = !expanded.value
+  maxHeight.value = expanded.value ? calculateMaxHeight() : '0'
 }
 
 watch(
-  () => props.collapsed,
+  () => props.expanded,
   () => {
-    maxHeight.value = collapsed.value ? '0' : calculateMaxHeight()
+    maxHeight.value = expanded.value ? calculateMaxHeight() : '0'
   }
 )
 watch(
   () => locale.value,
   () => {
     setTimeout(() => {
-      maxHeight.value = collapsed.value ? '0' : calculateMaxHeight()
+      maxHeight.value = expanded.value ? calculateMaxHeight() : '0'
     }, 100)
   }
 )
 onMounted(() => {
-  maxHeight.value = collapsed.value ? '0' : calculateMaxHeight()
+  maxHeight.value = expanded.value ? calculateMaxHeight() : '0'
 })
 </script>
 
