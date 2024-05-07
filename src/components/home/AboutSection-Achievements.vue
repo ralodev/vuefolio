@@ -32,10 +32,10 @@
               </g>
             </svg>
           </a>
-          <p class="experience__company font-semibold text-gray-800">
+          <p class="font-semibold text-gray-800">
             {{ achievement.awarder }}
           </p>
-          <p class="experience__description">
+          <p class="">
             {{ achievement.summary }}
           </p>
         </div>
@@ -50,7 +50,6 @@ import TrophyIcon from '@/components/icons/TrophyIcon.vue'
 import type { AchievementEntry } from '@/types'
 import { useLocalizedDate } from '@/composables/LocalizedDate'
 import { useLocalizedData } from '@/composables/LocalizedData'
-
 const { data: achievements } = useLocalizedData<AchievementEntry[]>('about.achievements.list')
 const { getDate } = useLocalizedDate()
 </script>
