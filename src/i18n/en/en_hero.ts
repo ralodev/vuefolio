@@ -5,7 +5,6 @@ const hero: Hero = {
   subtitle:
     "I've mastered the art of turning coffee into code and chaos into order. My passion for solving problems is matched only by my love for making homemade pancakes on Sunday mornings.",
   name: 'John Phillip Doe',
-  email: 'johndoe@mail.com',
   url: 'https://john-does.com/',
   contact_button: 'Get in touch',
   //If a profile hast an empty string '', the button wont be rendered

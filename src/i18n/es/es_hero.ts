@@ -5,7 +5,6 @@ const hero: Hero = {
   subtitle:
     'He dominado el arte de convertir el café en código y el caos en orden. Mi pasión por resolver problemas es igualada solo por mi amor por hacer panqueques caseros los domingos por la mañana.',
   name: 'John Phillip Doe',
-  email: 'johndoe@mail.com',
   url: 'https://john-does.com/',
   contact_button: 'Contáctame',
   //Si un perfil tiene una cadena vacía '', el botón no se renderizará
