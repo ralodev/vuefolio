@@ -12,7 +12,7 @@
           class="relative w-full ps-5 transition-all duration-500 before:absolute before:bottom-0 before:left-0 before:top-[5px] before:w-1 before:bg-base-200 hover:bg-base-100"
         >
           <time class="source-sans text-sm uppercase text-gray-800 sm:float-end">
-            {{ toFixedDate(achievement.date) }}</time
+            {{ getDate(achievement.date) }}</time
           >
           <a
             v-if="achievement.url"
@@ -48,32 +48,9 @@
 import CollapsiblePanel from '@/components/CollapsiblePanel.vue'
 import TrophyIcon from '@/components/icons/TrophyIcon.vue'
 import type { AchievementEntry } from '@/types'
-import { useI18n } from 'vue-i18n'
-import { ref, watch } from 'vue'
-const { tm, locale } = useI18n()
+import { useLocalizedDate } from '@/composables/LocalizedDate'
+import { useLocalizedData } from '@/composables/LocalizedData'
 
-const achievements = ref<AchievementEntry[]>([])
-
-function loadAchievements() {
-  achievements.value = tm('about.achievements.list')
-}
-
-watch(
-  () => locale.value,
-  () => {
-    loadAchievements()
-  },
-  { immediate: true }
-)
-
-const dateOptions: Intl.DateTimeFormatOptions = {
-  year: 'numeric',
-  month: 'long'
-}
-
-const toFixedDate = (stringDate: string) => {
-  const [year, month] = stringDate.split('-').map(Number)
-  const toDate = new Date(year, month - 1)
-  return toDate.toLocaleDateString(locale.value, dateOptions)
-}
+const { data: achievements } = useLocalizedData<AchievementEntry[]>('about.achievements.list')
+const { getDate } = useLocalizedDate()
 </script>

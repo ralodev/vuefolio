@@ -58,27 +58,11 @@
 <script lang="ts" setup>
 import ProjectCard from './ProjectSection-Card.vue'
 import ProjectCardSmall from './ProjectSection-AltCard.vue'
-
-import { ref, watch } from 'vue'
-import { useI18n } from 'vue-i18n'
 import type { ProjectEntry } from '@/types'
-const { tm, locale } = useI18n()
+import { useLocalizedData } from '@/composables/LocalizedData'
 
-const main_projects = ref<ProjectEntry[]>([])
-const other_projects = ref<ProjectEntry[]>([])
-
-function loadProjects() {
-  main_projects.value = tm('projects.main')
-  other_projects.value = tm('projects.other')
-}
-
-watch(
-  () => locale.value,
-  () => {
-    loadProjects()
-  },
-  { immediate: true }
-)
+const { data: main_projects } = useLocalizedData<ProjectEntry[]>('projects.main')
+const { data: other_projects } = useLocalizedData<ProjectEntry[]>('projects.other')
 </script>
 
 <style scoped>

@@ -38,25 +38,10 @@
 <script lang="ts" setup>
 import GlassButton from '@/components/GlassButton.vue'
 import ExperienceSectionEntry from './ExperienceSection-Entry.vue'
-import { ref, watch } from 'vue'
-import { useI18n } from 'vue-i18n'
 import type { JobEntry } from '@/types'
+import { useLocalizedData } from '@/composables/LocalizedData'
 
-const { tm, locale } = useI18n()
-
-const jobList = ref<JobEntry[]>([])
-
-function loadJobList() {
-  jobList.value = tm('experience.list') as JobEntry[]
-}
-
-watch(
-  () => locale.value,
-  () => {
-    loadJobList()
-  },
-  { immediate: true }
-)
+const { data: jobList } = useLocalizedData<JobEntry[]>('experience.list')
 </script>
 
 <style scoped>

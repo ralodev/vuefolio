@@ -9,7 +9,7 @@
           {{ edu.title }}
         </p>
         <time class="experience__time source-sans text-sm uppercase text-gray-800">
-          {{ toFixedDate(edu.startDate) }} - {{ toFixedDate(edu.endDate) }}</time
+          {{ getDate(edu.startDate) }} - {{ getDate(edu.endDate) }}</time
         >
 
         <p class="experience__company open-sans font-semibold text-gray-700">
@@ -35,31 +35,8 @@
 import CollapsiblePanel from '@/components/CollapsiblePanel.vue'
 import EducationIcon from '@/components/icons/EducationIcon.vue'
 import type { EducationEntry } from '@/types'
-import { useI18n } from 'vue-i18n'
-import { ref, watch } from 'vue'
-const { tm, locale } = useI18n()
-
-const education = ref<EducationEntry[]>([])
-
-function loadEducation() {
-  education.value = tm('about.education.list')
-}
-
-watch(
-  () => locale.value,
-  () => {
-    loadEducation()
-  },
-  { immediate: true }
-)
-
-const dateOptions: Intl.DateTimeFormatOptions = {
-  year: 'numeric',
-  month: 'long'
-}
-const toFixedDate = (stringDate: string) => {
-  const [year, month] = stringDate.split('-').map(Number)
-  const toDate = new Date(year, month - 1)
-  return toDate.toLocaleDateString(locale.value, dateOptions)
-}
+import { useLocalizedDate } from '@/composables/LocalizedDate'
+import { useLocalizedData } from '@/composables/LocalizedData'
+const { getDate } = useLocalizedDate()
+const { data: education } = useLocalizedData<EducationEntry[]>('about.education.list')
 </script>
