@@ -1,6 +1,6 @@
 <template>
-  <CollapsiblePanel collapsed :header="$t('about.achievements.title')" toggleable class="mt-5">
-    <template #icon>
+  <CollapsiblePanel :header="$t('about.achievements.title')" class="mt-5">
+    <template>
       <TrophyIcon class="h-8 w-8" />
     </template>
     <ul class="space-y-10">
@@ -72,7 +72,8 @@ const dateOptions: Intl.DateTimeFormatOptions = {
 }
 
 const toFixedDate = (stringDate: string) => {
-  const toDate = new Date(stringDate)
+  const [year, month] = stringDate.split('-').map(Number)
+  const toDate = new Date(year, month - 1)
   return toDate.toLocaleDateString(locale.value, dateOptions)
 }
 </script>

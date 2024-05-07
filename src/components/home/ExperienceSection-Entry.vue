@@ -7,7 +7,7 @@
         {{ props.position }}
       </h1>
       <time class="gap-2 font-mono text-sm font-semibold text-gray-700 sm:flex sm:text-sm">
-        {{ props.startDate }} - {{ props.endDate }}
+        {{ toFixedDate(props.startDate) }} - {{ toFixedDate(props.endDate) }}
         <p>({{ totalTime() }})</p>
       </time>
       <span class="block">
@@ -53,7 +53,7 @@
 
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n'
-const { t } = useI18n()
+const { t, locale } = useI18n()
 const props = defineProps({
   position: {
     type: String,
@@ -69,7 +69,7 @@ const props = defineProps({
   },
   endDate: {
     type: String,
-    default: 'Present'
+    default: ''
   },
   company: {
     type: String,
@@ -92,10 +92,22 @@ const totalTime = () => {
     startDate.getMonth() +
     12 * (endDate.getFullYear() - startDate.getFullYear())
   const months = total_months % 12
-  const years = (total_months / 12) | 10
+  const years = Math.floor(total_months / 12)
   return years == 0
     ? `${months} ${t('experience.month', months)}`
     : `${years} ${t('experience.year', years)}, ${months} ${t('experience.month', months)}`
+}
+
+const dateOptions: Intl.DateTimeFormatOptions = {
+  year: 'numeric',
+  month: 'short'
+}
+1
+const toFixedDate = (stringDate: string) => {
+  if (stringDate === t('experience.present')) return stringDate
+  const [year, month] = stringDate.split('-').map(Number)
+  const toDate = new Date(year, month - 1)
+  return toDate.toLocaleDateString(locale.value, dateOptions)
 }
 </script>
 

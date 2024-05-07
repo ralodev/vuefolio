@@ -11,7 +11,7 @@ export interface EducationEntry {
 export interface AchievementEntry {
   title: string
   date: string
-  url: string
+  url?: string
   awarder: string
   summary: string
 }
@@ -85,7 +85,6 @@ export interface Hero {
   title: string
   subtitle: string
   name: string
-  email: string
   url: string
   contact_button: string
   profiles: {

@@ -1,6 +1,6 @@
 <template>
-  <CollapsiblePanel :header="$t('about.education.title')" toggleable>
-    <template #icon>
+  <CollapsiblePanel :header="$t('about.education.title')">
+    <template>
       <EducationIcon class="me-2 h-8 w-8" />
     </template>
     <ul class="space-y-5">
@@ -58,7 +58,8 @@ const dateOptions: Intl.DateTimeFormatOptions = {
   month: 'long'
 }
 const toFixedDate = (stringDate: string) => {
-  const toDate = new Date(stringDate)
+  const [year, month] = stringDate.split('-').map(Number)
+  const toDate = new Date(year, month - 1)
   return toDate.toLocaleDateString(locale.value, dateOptions)
 }
 </script>
